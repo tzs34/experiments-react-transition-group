@@ -1,5 +1,5 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-Its just messing about with react-transition-group, ract-router and some styled components.
+Its just messing about with react-transition-group, react-router and some styled components.
 
 ## Available Scripts
 
