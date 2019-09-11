@@ -34,9 +34,22 @@ function App() {
    }
 
   return (
-      <div className="App">
+      <div className="section-one">
           <Header title='React Transition Group Examples' />
-      <div className='menu-list'>
+          <div>
+            <Header title='Example of using styled-components and react-transition-group' />
+          </div>
+          <div>
+            <StyledMenu />
+          </div>
+          <div>
+            <Header title='Example of using transtioning and routing' />
+          </div>
+          <div>
+            <RouterMenu items={items} />
+          </div>
+          <div className='section-two'>
+          <div className='menu-list'>
           <button onClick={toggleMenu}> Menu</button>
             <CSSTransition 
             in={showMenu} 
@@ -67,15 +80,8 @@ function App() {
           <div className='items-list-box'>
             <ItemsList items={items} />
           </div>
-          <div>
-            <Header title='Example of using transtioning and routing' />
           </div>
-          <div>
-            <RouterMenu items={items} />
-          </div>
-          <div>
-            <StyledMenu />
-          </div>
+         
       </div>
   );
 }

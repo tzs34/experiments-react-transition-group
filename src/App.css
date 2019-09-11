@@ -22,18 +22,27 @@
   outline-color: lightgreen;
 }
 
-.App {
-
+.section-one {
   text-align: center;
   color: black;
 }
 
+.section-two {
+  text-align: center;
+  color: black;
+  margin-top: 200px;
+  display:flex;
+  flex-direction: column;
+
+}
+
+
 .App-header {
   background-color: var(--main-bg-color);
-  min-height: 10vh;
+  min-height: 5vh;
   font-size: calc(10px + 1vmin);
   color: var(--header-color);
-  padding: 2em;
+
 }
 
 .container {
