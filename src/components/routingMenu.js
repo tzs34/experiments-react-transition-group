@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { CSSTransition, TransitionGroup }  from 'react-transition-group'
 import { 
   BrowserRouter as Router,
@@ -22,6 +22,12 @@ const RoutingMenu = () => (
 const Menu = ({location}) => {
 
     const [showMenu, setShowMenu] = useState(false)
+    
+    function handleLinkOnClick(e, path) {
+        if(path === location.pathname){
+            e.preventDefault()
+        }
+    }
 
     return (
         <div className='container'>
@@ -40,13 +46,13 @@ const Menu = ({location}) => {
           <div className='menu'>
             <ul className='list'>
               <li className='list-item'>
-                <Link to='/'>Home</Link>
+                <Link to='/' onClick={(e) => handleLinkOnClick(e, '/')}>Home</Link>
               </li>
               <li className='list-item'>
-                <Link to='/profile'>Profile</Link>
+                <Link to='/profile' onClick={(e) => handleLinkOnClick(e, '/profile')}>Profile</Link>
               </li>
               <li className='list-item'>
-                <Link to='/favorites'>Favorites</Link>
+                <Link to='/favorites' onClick={(e) => handleLinkOnClick(e, '/favorites')}>Favorites</Link>
               </li>
               <li className='list-item'>Sign out</li>
             </ul>
