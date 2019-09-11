@@ -1,33 +1,231 @@
-.App {
-  text-align: center;
+:root {
+  --main-bg-color: white;
+  --main-color: black;
+  --button-color:yellow;
+  --menu-item-color: greenyellow;
+  --header-color: grey;
+  --menu-timeout: 400ms;
+  --list-timeout: 500;
+  --list-item-max-height: 30px;
+  --menu-highlight-color: green;
+  --panel-padding: 2em;
+  --panel-offset: -50%;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+/* Remove outline for non-keyboard :focus */
+*:focus:not(.focus-visible) {
+  outline: none;
+}
+
+/* Optional: Customize .focus-visible */
+.focus-visible {
+  outline-color: lightgreen;
+}
+
+.App {
+
+  text-align: center;
+  color: black;
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  background-color: var(--main-bg-color);
+  min-height: 10vh;
+  font-size: calc(10px + 1vmin);
+  color: var(--header-color);
+  padding: 2em;
+}
+
+.container {
   display: flex;
-  flex-direction: column;
+}
+
+button {
+  background: var(--button-color);
+  width: 300px;
+  height: 50px;
+  margin-bottom: 5px;
+}
+
+.search-button{
+  width: 100px;
+  height: 30px;
+}
+
+.search-panel {
+  display:flex;
+  align-content: center;
+  justify-content: center;
+  background-color: #005F4C;
+  border-bottom: 0.09em #50DEC2 solid;
+  width: calc(100% - var(--panel-padding));
+}
+
+.search-box {
+  padding: var(--panel-padding);
+}
+
+.panel-enter {
+  transform: translateX(var(--panel-offset));
+  opacity: 0.01;
+  transition: transform 350ms ease-out, opacity 300ms ease-in;
+}
+
+.panel-enter-active {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.panel-exit {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.panel-exit-active { 
+  transform: translateX(var(--panel-offset));
+  opacity: 0;
+  transition: transform 500ms ease-in, opacity 300ms ease-out;
+}
+
+.menu-example-enter {
+  opacity: 0;
+}
+
+.menu-example-enter-active {
+  opacity: 1;
+  transition: opacity var(--menu-timeout);
+}
+
+.menu-example-exit {
+  opacity: 1; 
+}
+
+.menu-example-exit-active {
+  opacity: 0;
+  transition: opacity var(--menu-timeout);
+}
+
+.menu-list{
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 0.8em;
 }
 
-.App-link {
-  color: #61dafb;
+.menu-item{
+  height: 30px;
+  width: 300px;
+  background: var(--menu-item-color);
+  color: var(--main-color);
+  padding: 1em;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.list-item-enter {
+  max-height: 0;
+  opacity: 0;
+}
+
+.list-item-enter-active {
+  max-height: var(--list-item-max-height);
+  opacity: 1;
+  transition: all var(--list-timeout);
+}
+
+.list-item-exit {
+  max-height: var(--list-item-max-height);
+  opacity: 1;
+}
+
+.list-item-exit-active {
+  max-height: 0;
+  opacity: 0;
+  transition: all var(--list-timeout);
+}
+
+.listed-item {
+  width: 50%;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.selected-item{
+  padding: 5px;
+  list-style-type: none;
+}
+
+.listed-item {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.star {
+  margin-left: 5px;
+  color: red;
+}
+
+.items-list-box{
+  margin-left: calc(100%/2.5);
+}
+
+.item-list {
+  box-sizing: border-box;
+  padding: 10px;
+  background-color: lightgrey;
+  margin: 1em;
+}
+
+.list-item {
+ padding: 10px;
+}
+
+.fade-enter {
+  max-height: 0;
+  opacity: 0;
+}
+
+.fade-enter-active {
+  max-height: var(--list-item-max-height);
+  opacity: 1;
+  transition: all var(--list-timeout);
+}
+
+.fade-exit {
+  max-height: var(--list-item-max-height);
+  opacity: 1;
+}
+
+.fade-exit-active {
+  max-height: 0;
+  opacity: 0;
+  transition: all var(--list-timeout);
+}
+
+.swipe-container {
+  position: absolute;
+}
+
+.swipe-enter {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+.swipe-enter-active {
+  transform: translateY(0%);
+  opacity: 1;
+  transition: all 500ms;
+}
+
+.swipe-exit {
+  transform: translateY(0%);
+  opacity: 1;
+}
+
+.swipe-exit-active {
+  transform: translateY(100%);
+  opacity: 0;
+  transition: all 500ms;
+
 }
